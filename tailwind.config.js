@@ -10,6 +10,12 @@ export default {
       colors: {
         "base-color": "#212E4C",
         "base-card": "#F0F3FF",
+        "base-id-poke": "#97A0CC",
+        "base-stat-color": "#05091B",
+        "bg-bar-hp": "#3D4466",
+        "first-green": "#6CF0A1",
+        "last-green": "#2AE3B7",
+        "input-bg": "#FAFAFA",
       },
     },
   },
