@@ -19,9 +19,9 @@ const DetailPage = () => {
           <img src={pokemonDetails?.spriteFront} alt="Sprite Pokemon" />
         </div>
         <StatCard
-          defense={pokemonDetails.defense}
-          health={pokemonDetails.health}
-          attack={pokemonDetails.health}
+          defense={pokemonDetails?.defense}
+          health={pokemonDetails?.health}
+          attack={pokemonDetails?.health}
         />
       </div>
     </>

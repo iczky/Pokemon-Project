@@ -1,7 +1,7 @@
 interface StatCardProps {
-  health: number;
-  attack: number;
-  defense: number;
+  health?: number;
+  attack?: number;
+  defense?: number;
 }
 
 const StatCard: React.FC<StatCardProps> = ({ health, attack, defense }) => {
