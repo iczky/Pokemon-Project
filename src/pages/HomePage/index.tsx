@@ -6,7 +6,7 @@ import { PokemonListContext } from "../../hooks/PokemonListContext";
 import LoadingIndicator from "./LoadingIndicator";
 
 const HomePage = () => {
-  const { pokemonList, loading, error } = usePokemonList();
+  const { pokemonList, loading } = usePokemonList();
   const limitedPokemonList = pokemonList.slice(0, 20);
 
   if (loading) {

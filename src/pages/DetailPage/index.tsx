@@ -1,13 +1,11 @@
 import Navbar from "../../components/Navbar";
-import testPoke from "../../assets/testPoke.png";
-import testSprite from "../../assets/testSprite.png";
 import StatCard from "./StatCard";
 import usePokemonDetails from "../../hooks/usePokemonDetail";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
   const { id } = useParams();
-  const { pokemonDetails, loading, error } = usePokemonDetails(id);
+  const { pokemonDetails } = usePokemonDetails(id);
   return (
     <>
       <Navbar searchIconProps={false} />
@@ -21,9 +19,9 @@ const DetailPage = () => {
           <img src={pokemonDetails?.spriteFront} alt="Sprite Pokemon" />
         </div>
         <StatCard
-          defense={pokemonDetails?.defense}
-          health={pokemonDetails?.health}
-          attack={pokemonDetails?.health}
+          defense={pokemonDetails.defense}
+          health={pokemonDetails.health}
+          attack={pokemonDetails.health}
         />
       </div>
     </>
