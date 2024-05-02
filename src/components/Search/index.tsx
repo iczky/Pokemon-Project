@@ -9,16 +9,27 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ inputRef }) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [filteredPokemonList, setFilteredPokemonList] = useState<Pokemon[]>([]);
+  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
+
+  const context = usePokemonContext();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value.trim();
     if (inputValue !== "") {
-      const filteredPokemon = pokemonList.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
-      );
+      // const filteredPokemon = context?.filter((pokemon) =>
+      //   pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
+      // );
 
-      const limitedFilteredPokemon = filteredPokemon.slice(0, 10);
+      const filteredPokemon = context?.pokemons.map((pokemon) => {
+        return {
+          name: pokemon.name,
+        };
+      });
+
+      console.log(filteredPokemon);
+
+      const limitedFilteredPokemon = filteredPokemon?.slice(0, 10);
+      console.log(limitedFilteredPokemon);
 
       setFilteredPokemonList(limitedFilteredPokemon);
       setShowDropdown(true);
@@ -27,8 +38,6 @@ const Search: React.FC<SearchProps> = ({ inputRef }) => {
       setShowDropdown(false);
     }
   };
-
-  const pokemonList = usePokemonContext();
 
   return (
     <div className="relative">

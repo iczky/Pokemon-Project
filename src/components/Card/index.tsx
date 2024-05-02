@@ -1,16 +1,13 @@
-import usePokemonDetails from "../../hooks/usePokemonDetail";
-
-export interface CardProps {
+interface CardProps {
   name: string;
+  artworkFront: string;
 }
 
-const Card: React.FC<CardProps> = ({ name }) => {
-  const { pokemonDetails } = usePokemonDetails(name);
-
+const Card: React.FC<CardProps> = ({ name, artworkFront }) => {
   return (
     <div className="pt-10 pb-2 px-5 flex flex-col gap-2 rounded-lg bg-base-card hover:scale-105 transition cursor-pointer group">
       <img
-        src={pokemonDetails?.artworkFront}
+        src={artworkFront}
         alt="Test Pokemon"
         className="group-hover:scale-150 transition group-hover:-translate-y-8"
       />

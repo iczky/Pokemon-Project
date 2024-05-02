@@ -9,8 +9,7 @@ import CardSingle from "../../components/Card/CardSingle";
 import { useState } from "react";
 
 const HomePage = () => {
-  const context = usePokemonContext();
-  const limitedPokemonList = context?.pokemon.slice(0, 20);
+  const limitedPokemonList = usePokemonContext()?.pokemons.slice(0, 20);
 
   const [singleView, setSingleView] = useState(false);
 
@@ -44,7 +43,7 @@ const HomePage = () => {
         <div className="px-5 py-4 max-w-screen-sm h-full grid grid-cols-2 gap-4 overflow-y-auto bg-base-color">
           {limitedPokemonList?.map((pokemon, index) => (
             <Link to={`/detail/${pokemon.name}`} key={index}>
-              <Card name={pokemon.name} />
+              <Card name={pokemon.name} artworkFront={pokemon.artworkFront} />
             </Link>
           ))}
         </div>
@@ -52,7 +51,12 @@ const HomePage = () => {
         <div className="px-5 py-4 max-w-screen-sm h-full flex flex-col gap-4 overflow-y-auto bg-base-color">
           {limitedPokemonList?.map((pokemon, index) => (
             <Link to={`/detail/${pokemon.name}`} key={index}>
-              <CardSingle name={pokemon.name} />
+              <CardSingle
+                name={pokemon.name}
+                id={pokemon.id}
+                types={pokemon.types}
+                artworkFront={pokemon.artworkFront}
+              />
             </Link>
           ))}
         </div>

@@ -11,7 +11,7 @@ function App() {
   // const list = usePokemonList();
   // const detail = usePokemonDetails("bulbasaur");
   return (
-    <PokemonProvider key={null} type={undefined} props={undefined}>
+    <PokemonProvider>
       {/* Start the development here */}
       <Routes>
         <Route path="/" element={<HomePage />} />
