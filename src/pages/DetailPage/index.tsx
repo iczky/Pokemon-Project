@@ -21,7 +21,7 @@ const DetailPage = () => {
         <StatCard
           defense={pokemonDetails?.defense}
           health={pokemonDetails?.health}
-          attack={pokemonDetails?.health}
+          attack={pokemonDetails?.attack}
         />
       </div>
     </>

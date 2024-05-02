@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
-// import usePokemonList from './hooks/usePokemonList'
+import { PokemonProvider } from "./hooks/PokemonProvider";
 // import usePokemonDetails from './hooks/usePokemonDetail'
 
 function App() {
@@ -10,9 +10,8 @@ function App() {
   // Example below
   // const list = usePokemonList();
   // const detail = usePokemonDetails("bulbasaur");
-
   return (
-    <div>
+    <PokemonProvider key={null} type={undefined} props={undefined}>
       {/* Start the development here */}
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -22,7 +21,7 @@ function App() {
       {/* Use react-router-dom Expected routes:  */}
       {/* 1. Home path: "/" */}
       {/* 1. Details path: "/details:" */}
-    </div>
+    </PokemonProvider>
   );
 }
 

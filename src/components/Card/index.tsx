@@ -1,6 +1,6 @@
 import usePokemonDetails from "../../hooks/usePokemonDetail";
 
-interface CardProps {
+export interface CardProps {
   name: string;
 }
 

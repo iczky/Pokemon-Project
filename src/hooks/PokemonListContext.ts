@@ -1,6 +1,10 @@
 import { createContext, useContext } from "react";
-import { Pokemon } from "./usePokemonList";
+import { PokemonContextType } from "./PokemonProvider";
 
-export const PokemonListContext = createContext<Pokemon[]>([]);
+export const PokemonListContext = createContext<PokemonContextType | undefined>(
+  undefined
+);
 
 export const usePokemonContext = () => useContext(PokemonListContext);
+
+export default PokemonListContext;

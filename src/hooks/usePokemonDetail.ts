@@ -9,6 +9,7 @@ interface PokemonDetails {
   defense: number;
   spriteFront: string;
   artworkFront: string;
+  types: string;
 }
 
 const usePokemonDetails = (pokemonName?: string) => {
@@ -28,19 +29,26 @@ const usePokemonDetails = (pokemonName?: string) => {
           throw new Error("Failed to fetch Pokémon details.");
         }
         const data = await response.json();
+
         const spriteFront = data.sprites.front_default;
+
         const artworkFront =
           data.sprites.other["official-artwork"].front_default;
         const { name, id } = data;
+
         const health = data.stats.find(
           (stat: any) => stat.stat.name === "hp"
         ).base_stat;
+
         const attack = data.stats.find(
           (stat: any) => stat.stat.name === "attack"
         ).base_stat;
+
         const defense = data.stats.find(
           (stat: any) => stat.stat.name === "defense"
         ).base_stat;
+
+        const types = data.types[0].type;
 
         setPokemonDetails({
           name,
@@ -50,6 +58,7 @@ const usePokemonDetails = (pokemonName?: string) => {
           defense,
           spriteFront,
           artworkFront,
+          types,
         });
         setLoading(false);
       } catch (error) {

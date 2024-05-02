@@ -17,7 +17,10 @@ const Search: React.FC<SearchProps> = ({ inputRef }) => {
       const filteredPokemon = pokemonList.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
       );
-      setFilteredPokemonList(filteredPokemon);
+
+      const limitedFilteredPokemon = filteredPokemon.slice(0, 10);
+
+      setFilteredPokemonList(limitedFilteredPokemon);
       setShowDropdown(true);
     } else {
       setFilteredPokemonList([]);
