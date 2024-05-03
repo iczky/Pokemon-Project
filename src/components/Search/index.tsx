@@ -22,10 +22,6 @@ const Search: React.FC<SearchProps> = ({ inputRef }) => {
         pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
       );
 
-      // const filteredPokemon: PokemonDetails[] = context?.pokemons.map((pokemon) => {
-      //   return pokemon
-      // });
-
       const limitedFilteredPokemon = filteredPokemon
         ? filteredPokemon.slice(0, 10)
         : [];
