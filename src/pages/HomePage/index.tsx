@@ -14,23 +14,15 @@ const HomePage = () => {
   const [singleView, setSingleView] = useState(false);
 
   const handleSingleView = () => {
-    if (!singleView) {
-      setSingleView(true);
-    } else {
+    if (singleView) {
       setSingleView(false);
     }
   };
   const handleDoubleView = () => {
     if (!singleView) {
       setSingleView(true);
-    } else {
-      setSingleView(false);
     }
   };
-
-  // if (loading) {
-  //   return <LoadingIndicator />;
-  // }
 
   return (
     <>

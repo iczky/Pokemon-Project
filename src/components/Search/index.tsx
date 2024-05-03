@@ -9,7 +9,9 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ inputRef }) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
+  const [filteredPokemonList, setFilteredPokemonList] = useState<
+    PokemonDetails[]
+  >([]);
 
   const context = usePokemonContext();
 
@@ -24,7 +26,9 @@ const Search: React.FC<SearchProps> = ({ inputRef }) => {
       //   return pokemon
       // });
 
-      const limitedFilteredPokemon = filteredPokemon?.slice(0, 10);
+      const limitedFilteredPokemon = filteredPokemon
+        ? filteredPokemon.slice(0, 10)
+        : [];
       console.log(limitedFilteredPokemon);
 
       setFilteredPokemonList(limitedFilteredPokemon);
