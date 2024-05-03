@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePokemonContext } from "../../hooks/PokemonListContext";
-import { Pokemon } from "../../hooks/usePokemonList";
 import { Link } from "react-router-dom";
+import { PokemonDetails } from "../../hooks/PokemonProvider";
 
 interface SearchProps {
   inputRef: React.RefObject<HTMLInputElement>;
@@ -16,17 +16,13 @@ const Search: React.FC<SearchProps> = ({ inputRef }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value.trim();
     if (inputValue !== "") {
-      // const filteredPokemon = context?.filter((pokemon) =>
-      //   pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
-      // );
+      const filteredPokemon = context?.pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
 
-      const filteredPokemon = context?.pokemons.map((pokemon) => {
-        return {
-          name: pokemon.name,
-        };
-      });
-
-      console.log(filteredPokemon);
+      // const filteredPokemon: PokemonDetails[] = context?.pokemons.map((pokemon) => {
+      //   return pokemon
+      // });
 
       const limitedFilteredPokemon = filteredPokemon?.slice(0, 10);
       console.log(limitedFilteredPokemon);
